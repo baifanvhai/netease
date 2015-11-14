@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title></title>
+    <link  rel="stylesheet" type="text/css" href="css/reset.css"/>
+    <link  rel="stylesheet" type="text/css" href="css/web.css"/>
+    <script type="text/javascript" src="js/ajax.js"></script>
+    <script type="text/javascript" src="js/md5.js"></script>
+    <!-- // <script type="text/javascript" src="move.js"></script> -->
+</head>
+
+<body>
+<!-- 提示栏begin -->
+<div id="m-tip" class="clearfix" >
+  <div id="container">
+    <span>网易云课堂微专业，帮助你掌握专业技能，令你求职或加薪多一份独特优势！ 
+      <a href="http://study.163.com/smartSpec/intro.htm" class="view" target="_blank">立即查看></a> 
+    </span>
+    <span id="close"  href="javascript:void(0)">不再提醒</span>
+  </div>
+</div>
+<!-- 提示栏end -->
+<!-- 登录窗口 -->
+<div id="logincontainer">
+  <!-- <form action="http://study.163.com/webDev/login.htm" method="get" class="m-form" autocomplete="off" > -->
+      <legend>
+        <span style="font-size: 18px; font-weight: bold; display:block;line-height: 28px;">登录网易云课堂
+        </span>
+      </legend>
+      <div> <input id="userName" name="userName" autocomplete="off" placeholder="账号" type="text" class="u-txt"></div>
+      <div> <input id="password" name="password" autocomplete="off" placeholder="密码" type="password" class="u-txt"></div>
+      <div><button id="login">登 录</button></div>
+      <span class="closed"></span>
+  <!-- </form> -->
+</div>
+<!-- banner begin -->
+<div class="banner clearfix">
+    <!-- 第一部分 标题+关注+导航+搜索-->
+  <div class="navigate"> 
+    <img src="image/logo1.png" width="234" height="22">
+    <!-- 加关注 -->
+    <div class="attention" >
+       <a href="javascript:void(0)">关注</a>  
+    </div>
+    <!-- 已 关注 -->
+    <div class="hasattention" style="display:none"> 
+       <span style="background: url(image/right.png) left center no-repeat; padding-left: 20px;color: black;">已关注</span>
+       <span style="color: #cccccc;"> | </span>
+       <a href="javascript:void(0)" class="cal">取消</a>
+    </div>
+
+    <div style="display: inline-block; margin-left: 14px;font-family: 宋体">粉丝 45</div>
+    <!-- 导航条+搜索 -->
+    <div class="nav clearfix "> 
+        <a class="item" href="http://open.163.com/" target="_blank">网易公开课</a>
+        <a class="item" href="http://study.163.com/" target="_blank">云课堂</a>
+        <a class="item" href="http://www.icourse163.org/" target="_blank">中国大学MOOC</a>
+        <div class="lastitem"></div>
+    </div> 
+  </div>
+  <!-- 第二部分 轮播图 -->
+  <div id="container-img">
+      <ul>
+        <li style="display:block;"><a href="http://open.163.com/" target="_blank"><img src="image/banner1.jpg"/></a></li>
+        <li><a href="http://study.163.com/" target="_blank"><img src="image/banner2.jpg"/></a></li>
+        <li><a href="http://www.icourse163.org/" target="_blank"><img src="image/banner3.jpg"/></a></li>
+      </ul>
+      <ol>
+        <li class="active"></li>
+        <li></li>
+        <li></li>
+      </ol>
+  </div>
+  <!-- 第三部分 -->
+  <div class="product" >
+    <ul class="product-box clearfix" >
+      <li class="member">
+        <div class="product-img1"></div>
+        <div class="product-word">
+          <h2>网易公开课</h2> 
+          <p class="more">推出国内外名校公开课，涉及广泛的学科，名校老师认真讲解深度剖析，网易视频公开课频道搭建起强有力的网络视频教学平台。</p><br><br><a class="more view" href="http://open.163.com/" target="_blank">了解更多 ></a>
+        </div>
+      </li>
+
+      <li class="member">
+        <div class="product-img2"></div>
+        <div class="product-word">
+            <h2>云课堂</h2> 
+            <p class="more">网易旗下大型在线学习平台，该平台面向学习者提供海量免费、优质课程，创新的个性化学习体验，自由开放的交流互动环境。</p><br><br><a class="more view" href="http://study.163.com/"  target="_blank">了解更多 ></a>
+        </div>
+      </li> 
+
+      <li class="member">
+        <div class="product-img3"></div>
+        <div class="product-word">
+          <h2>中国大学MOOC</h2> 
+          <p class="more">是爱课程网携手云课堂打造的在线学习平台，每一个有提升愿望的人，都可以在这里学习中国最好的大学课程，学完还能获得认证证书。</p><br><br>
+          <a class="more view" href="http://www.icourse163.org/" target="_blank">了解更多 ></a>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
+<!-- 工作环境 -->
+<div class="workspace clearfix">
+  <div class="pic">
+    <img src="image/pic1.png"/>
+    <img src="image/pic2.png"/>
+    <img src="image/pic3.png"/>
+    <img src="image/pic4.png"/>
+    <img src="image/pic5.png"/>
+  </div>
+</div>
+<!-- 课程 -->
+<div class="center clearfix">
+  <div class="center-container clearfix">
+    <!-- 课程左边 -->
+    <div class="left">
+      <div class="tab clearfix">
+        <ul>
+          <li id="menu1" onclick="setTab('menu',1,2)" class="hover">产品设计</li>
+          <li id="menu2" onclick="setTab('menu',2,2)">编程语言</li>
+        </ul>
+      </div>
+      <div class="centerlist " id="centermenu">
+         <div  class="first center-list">
+            <div class="wrap">
+             <img class="imgpic" width="222" height="124"> 
+              <p class="p1"> </p><!-- 主题 -->
+              <p class="p2"></p><!-- 发布者 -->
+              <div class="people"><span class="num"></span></div>
+              <div class="money"></div>
+              <div class="kind"> 分类：<span class="kindname"></span></div>
+              <div class="disc"></div>
+            </div>
+         </div>
+         <div  class="center-list">
+            <div class="wrap">
+             <img class="imgpic" width="222" height="124"> 
+              <p class="p1"> </p><!-- 主题 -->
+              <p class="p2"></p><!-- 发布者 -->
+              <div class="people"><span class="num"></span></div>
+              <div class="money"></div>
+              <div class="kind"> 分类：<span class="kindname"></span></div>
+              <div class="disc"></div>
+            </div>
+         </div>
+         <div  class="center-list">
+            <div class="wrap">
+             <img class="imgpic" width="222" height="124"> 
+              <p class="p1"> </p><!-- 主题 -->
+              <p class="p2"></p><!-- 发布者 -->
+              <div class="people"><span class="num"></span></div>
+              <div class="money"></div>
+              <div class="kind"> 分类：<span class="kindname"></span></div>
+              <div class="disc"></div>
+            </div>
+         </div>
+         <div  class="center-list">
+            <div class="wrap">
+             <img class="imgpic" width="222" height="124"> 
+              <p class="p1"> </p><!-- 主题 -->
+              <p class="p2"></p><!-- 发布者 -->
+              <div class="people"><span class="num"></span></div>
+              <div class="money"></div>
+              <div class="kind"> 分类：<span class="kindname"></span></div>
+              <div class="disc"></div>
+            </div>
+         </div>
+         <div  class="center-list">
+           <div class="wrap">
+             <img class="imgpic" width="222" height="124"> 
+              <p class="p1"> </p><!-- 主题 -->
+              <p class="p2"></p><!-- 发布者 -->
+              <div class="people"><span class="num"></span></div>
+              <div class="money"></div>
+              <div class="kind"> 分类：<span class="kindname"></span></div>
+              <div class="disc"></div>
+            </div>
+         </div>
+         <div  class="center-list">
+            <div class="wrap">
+             <img class="imgpic" width="222" height="124"> 
+              <p class="p1"> </p><!-- 主题 -->
+              <p class="p2"></p><!-- 发布者 -->
+              <div class="people"><span class="num"></span></div>
+              <div class="money"></div>
+              <div class="kind"> 分类：<span class="kindname"></span></div>
+              <div class="disc"></div>
+            </div>
+         </div>
+         <div  class="center-list">
+            <div class="wrap">
+             <img class="imgpic" width="222" height="124"> 
+              <p class="p1"> </p><!-- 主题 -->
+              <p class="p2"></p><!-- 发布者 -->
+              <div class="people"><span class="num"></span></div>
+              <div class="money"></div>
+              <div class="kind"> 分类：<span class="kindname"></span></div>
+              <div class="disc"></div>
+            </div>
+         </div>
+         <div  class="center-list">
+            <div class="wrap">
+             <img class="imgpic" width="222" height="124"> 
+              <p class="p1"> </p><!-- 主题 -->
+              <p class="p2"></p><!-- 发布者 -->
+              <div class="people"><span class="num"></span></div>
+              <div class="money"></div>
+              <div class="kind"> 分类：<span class="kindname"></span></div>
+              <div class="disc"></div>
+            </div>
+         </div>
+         <div class="center-list">
+           <div class="wrap">
+             <img class="imgpic" width="222" height="124"> 
+              <p class="p1"> </p><!-- 主题 -->
+              <p class="p2"></p><!-- 发布者 -->
+              <div class="people"><span class="num"></span></div>
+              <div class="money"></div>
+              <div class="kind"> 分类：<span class="kindname"></span></div>
+              <div class="disc"></div>
+            </div>
+         </div>
+          <div  class="center-list">
+            <div class="wrap">
+             <img class="imgpic" width="222" height="124"> 
+              <p class="p1"> </p><!-- 主题 -->
+              <p class="p2"></p><!-- 发布者 -->
+              <div class="people"><span class="num"></span></div>
+              <div class="money"></div>
+              <div class="kind"> 分类：<span class="kindname"></span></div>
+              <div class="disc"></div>
+            </div>
+         </div>
+          <div  class="center-list">
+            <div class="wrap">
+             <img class="imgpic" width="222" height="124"> 
+              <p class="p1"> </p><!-- 主题 -->
+              <p class="p2"></p><!-- 发布者 -->
+              <div class="people"><span class="num"></span></div>
+              <div class="money"></div>
+              <div class="kind"> 分类：<span class="kindname"></span></div>
+              <div class="disc"></div>
+            </div>
+         </div>
+          <div  class="center-list">
+            <div class="wrap">
+             <img class="imgpic" width="222" height="124"> 
+              <p class="p1"> </p><!-- 主题 -->
+              <p class="p2"></p><!-- 发布者 -->
+              <div class="people"><span class="num"></span></div>
+              <div class="money"></div>
+              <div class="kind"> 分类：<span class="kindname"></span></div>
+              <div class="disc"></div>
+            </div>
+         </div>
+         <div  class="center-list">
+            <div class="wrap">
+             <img class="imgpic" width="222" height="124"> 
+              <p class="p1"> </p><!-- 主题 -->
+              <p class="p2"></p><!-- 发布者 -->
+              <div class="people"><span class="num"></span></div>
+              <div class="money"></div>
+              <div class="kind"> 分类：<span class="kindname"></span></div>
+              <div class="disc"></div>
+            </div>
+         </div>
+          <div  class="center-list">
+            <div class="wrap">
+             <img class="imgpic" width="222" height="124"> 
+              <p class="p1"> </p><!-- 主题 -->
+              <p class="p2"></p><!-- 发布者 -->
+              <div class="people"><span class="num"></span></div>
+              <div class="money"></div>
+              <div class="kind"> 分类：<span class="kindname"></span></div>
+              <div class="disc"></div>
+            </div>
+         </div>
+          <div  class="center-list">
+            <div class="wrap">
+             <img class="imgpic" width="222" height="124"> 
+              <p class="p1"> </p><!-- 主题 -->
+              <p class="p2"></p><!-- 发布者 -->
+              <div class="people"><span class="num"></span></div>
+              <div class="money"></div>
+              <div class="kind"> 分类：<span class="kindname"></span></div>
+              <div class="disc"></div>
+            </div>
+         </div>
+          <div  class="center-list">
+            <div class="wrap">
+             <img class="imgpic" width="222" height="124"> 
+              <p class="p1"> </p><!-- 主题 -->
+              <p class="p2"></p><!-- 发布者 -->
+              <div class="people"><span class="num"></span></div>
+              <div class="money"></div>
+              <div class="kind"> 分类：<span class="kindname"></span></div>
+              <div class="disc"></div>
+            </div>
+         </div>
+          <div  class="center-list">
+            <div class="wrap">
+             <img class="imgpic" width="222" height="124"> 
+              <p class="p1"> </p><!-- 主题 -->
+              <p class="p2"></p><!-- 发布者 -->
+              <div class="people"><span class="num"></span></div>
+              <div class="money"></div>
+              <div class="kind"> 分类：<span class="kindname"></span></div>
+              <div class="disc"></div>
+            </div>
+         </div>
+          <div  class="center-list">
+            <div class="wrap">
+             <img class="imgpic" width="222" height="124"> 
+              <p class="p1"> </p><!-- 主题 -->
+              <p class="p2"></p><!-- 发布者 -->
+              <div class="people"><span class="num"></span></div>
+              <div class="money"></div>
+              <div class="kind"> 分类：<span class="kindname"></span></div>
+              <div class="disc"></div>
+            </div>
+         </div>
+          <div  class="center-list">
+            <div class="wrap">
+             <img class="imgpic" width="222" height="124"> 
+              <p class="p1"> </p><!-- 主题 -->
+              <p class="p2"></p><!-- 发布者 -->
+              <div class="people"><span class="num"></span></div>
+              <div class="money"></div>
+              <div class="kind"> 分类：<span class="kindname"></span></div>
+              <div class="disc"></div>
+            </div>
+         </div>
+          <div  class="center-list">
+            <div class="wrap">
+             <img class="imgpic" width="222" height="124"> 
+              <p class="p1"> </p><!-- 主题 -->
+              <p class="p2"></p><!-- 发布者 -->
+              <div class="people"><span class="num"></span></div>
+              <div class="money"></div>
+              <div class="kind"> 分类：<span class="kindname"></span></div>
+              <div class="disc"></div>
+            </div>
+         </div>
+      </div>
+      <div class="page">
+        <a index="0" class="pre">&lt;</a>
+        <a index="1" class="pg selected">1</a>
+        <a index="2" class="pg ">2</a>
+        <a index="3" class="pg">3</a>
+        <a index="4" class="pg">4</a>
+        <a index="5" class="pg">5</a>
+        <a index="6" class="pg">6</a>
+        <a index="7" class="pg">7</a>
+        <a index="8" class="pg">8</a>
+        <a index="2" class="next">&gt;</a>
+      </div>   
+    </div>
+    <!-- 课程右边 -->
+    <div class="right ">
+      <div class="up">
+        <h3 >机构介绍</h3>
+        <div>
+          <span class="more">观看下面的视频来了解吧：</span>
+          <img src="image/vedio.png" width="180px" height="110px" id="vedio">
+        </div>
+      </div>
+
+      <div class="down">
+        <h3 >最热排行</h3>
+        <div class="hotlist">
+          <ul id="hotlistul">
+            <li>
+              <img class="hot-img"  width="50" height="50"></img>
+              <div class="clearfix" style=" margin-left: 60px;">
+                 <p class="p3"></p>
+                 <div class="people1"><span id="count"></span></div>
+              </div>
+            </li>
+            <li>
+              <img class="hot-img"  width="50" height="50"></img>
+              <div class="clearfix" style=" margin-left: 60px;">
+                 <p class="p3"></p>
+                 <div class="people1"><span id="count"></span></div>
+              </div>
+            </li>
+            <li>
+              <img class="hot-img"  width="50" height="50"></img>
+              <div class="clearfix" style=" margin-left: 60px;">
+                 <p class="p3"></p>
+                 <div class="people1"><span id="count"></span></div>
+              </div>
+            </li>
+            <li>
+              <img class="hot-img"  width="50" height="50"></img>
+              <div class="clearfix" style=" margin-left: 60px;">
+                 <p class="p3"></p>
+                 <div class="people1"><span id="count"></span></div>
+              </div>
+            </li>
+            <li>
+              <img class="hot-img"  width="50" height="50"></img>
+              <div class="clearfix" style=" margin-left: 60px;">
+                 <p class="p3"></p>
+                 <div class="people1"><span id="count"></span></div>
+              </div>
+            </li>
+            <li>
+              <img class="hot-img"  width="50" height="50"></img>
+              <div class="clearfix" style=" margin-left: 60px;">
+                 <p class="p3"></p>
+                 <div class="people1"><span id="count"></span></div>
+              </div>
+            </li>
+            <li>
+              <img class="hot-img"  width="50" height="50"></img>
+              <div class="clearfix" style=" margin-left: 60px;">
+                 <p class="p3"></p>
+                 <div class="people1"><span id="count"></span></div>
+              </div>
+            </li>
+            <li>
+              <img class="hot-img"  width="50" height="50"></img>
+              <div class="clearfix" style=" margin-left: 60px;">
+                 <p class="p3"></p>
+                 <div class="people1"><span id="count"></span></div>
+              </div>
+            </li>
+            <li>
+              <img class="hot-img"  width="50" height="50"></img>
+              <div class="clearfix" style=" margin-left: 60px;">
+                 <p class="p3"></p>
+                 <div class="people1"><span id="count"></span></div>
+              </div>
+            </li>
+            <li>
+              <img class="hot-img"  width="50" height="50"></img>
+              <div class="clearfix" style=" margin-left: 60px;">
+                 <p class="p3"></p>
+                 <div class="people1"><span id="count"></span></div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- 视频 -->
+<div id="loading">
+  <span style="font-size: 18px;line-height: 36px;">请观看下面的视频</span>
+  <video src="http://mov.bn.netease.com/open-movie/nos/mp4/2014/12/30/SADQ86F5S_shd.mp4" width="788" controls="true"></video>
+  <span id="closed"></span>
+</div>
+<!-- 下边脚 -->
+  <div id="footer">
+    <div class="foot">
+      <div style="margin-top: 80px; margin-left: 100px;float: left;">
+        <img src="image/logo2.png">
+        <p class="txt" style="margin-top: 10px;">©2014 icourse163.org 浙ICP备08114786号-1<br>icourses.cn 京ICP备12020869号-2 京公网安备110102000459-2</p>
+      </div>
+      <div class="links lklist1">
+            <h4 class="txt">友情链接：</h4>
+            <ul>
+              <li> <a href="" target="_blank">网易公开课</a></li>
+              <li> <a href="" target="_blank">网易云课堂</a></li>
+              <li> <a href="" target="_blank">中国大学MOOC</a></li>
+            </ul>
+      </div>
+      <div class="links lklist2">
+            <h4 class="txt">我们：</h4>
+            <ul>
+              <li> <a href="" target="_blank">关于</a></li>
+              <li> <a href="" target="_blank">联系</a></li>
+              <li> <a href="" class="weibo" target="_blank">关注</a></li>
+            </ul>
+      </div>
+      <div class="links lklist3">
+            <h4 class="txt">更多：</h4>
+            <ul>
+              <li> <a href="#" target="_blank">常见问题</a></li>
+              <li> <a href="" target="_blank">意见反馈</a></li>
+            </ul>
+      </div>
+    </div>
+  </div>
+   <script type="text/javascript"  src="js/web.js"></script>
+</body>
+</html>
